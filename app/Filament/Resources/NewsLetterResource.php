@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Enums\NewsLetterStatus;
+
 class NewsLetterResource extends Resource
 {
     protected static ?string $model = NewsLetter::class;
@@ -27,7 +29,9 @@ class NewsLetterResource extends Resource
                     ->email()
                     ->required(),
                 Forms\Components\TextInput::make('name'),
-                Forms\Components\TextInput::make('status'),
+                Forms\Components\Select::make('status')
+                    ->options(NewsLetterStatus::class)
+                    ->default(NewsLetterStatus::SUBSCRIBE)
             ]);
     }
 
