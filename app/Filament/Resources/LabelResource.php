@@ -25,9 +25,6 @@ class LabelResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required(),
                 Forms\Components\TextInput::make('status'),
                 Forms\Components\TextInput::make('color'),
             ]);
@@ -38,8 +35,6 @@ class LabelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable(),
