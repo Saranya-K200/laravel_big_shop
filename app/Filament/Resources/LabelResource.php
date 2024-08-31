@@ -25,8 +25,10 @@ class LabelResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\TextInput::make('status'),
-                Forms\Components\TextInput::make('color'),
+                Forms\Components\Select::make('status')
+                    ->options(LabelStatus::class)
+                    ->default(Labelstatus::PUBLISH),
+                Forms\Components\ColorPicker::make('color'),
             ]);
     }
 
@@ -38,7 +40,7 @@ class LabelResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('color')
+                Tables\Columns\ColorColumn::make('color')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
