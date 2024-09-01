@@ -3,17 +3,17 @@
 namespace App\Enums;
 
 
-enum DiscountType: string{
+enum DiscountTypeStatus: string{
     case COUPON_CODE = 'COUPON_CODE';
     case PROMOTION = 'PROMOTION';
     
 
     public static function getValue(): array 
     {
-      return array_column(DiscountType::cases(),'value');
+      return array_column(DiscountTypeStatus::cases(),'value');
     }
     public static function getKeyValue(): array 
     {
-      return array_column(DiscountType::cases(),'value','key');
+      return array_column(DiscountTypeStatus::cases(),'value','key');
     }
 }
