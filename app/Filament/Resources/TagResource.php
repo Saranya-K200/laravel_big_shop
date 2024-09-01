@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Enums\TagStatus;
+
 class TagResource extends Resource
 {
     protected static ?string $model = Tag::class;
@@ -24,8 +26,13 @@ class TagResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('status'),
+                    ->required()
+                    ->maxLength(255),
+                 Forms\Components\Select::make('status')
+                    ->options(TagStatus::class)
+
+                    ->default(TagStatus::PUBLISH),
+
             ]);
     }
 
@@ -36,7 +43,13 @@ class TagResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn (string $state): string => match($state){
+                        TagStatus::PUBLISH->value => 'success',
+                        TagStatus::DRAFT->value => 'warning',                        
+                        TagStatus::PENDING->value => 'danger',   
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
