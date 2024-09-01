@@ -32,9 +32,9 @@ class DiscountTypeResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('type')
-                    ->options(DiscountType::class)
+                    ->options(DiscountTypeStatus::class)
 
-                    ->default(DiscountType::COUPON_CODE),
+                    ->default(DiscountTypeStatus::COUPON_CODE),
                 Forms\Components\Toggle::make('never_expired')
                     ->required(),
             ]);
