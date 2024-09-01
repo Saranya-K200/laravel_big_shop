@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Enums\DiscountTypeStatus;
+
 class DiscountTypeResource extends Resource
 {
     protected static ?string $model = DiscountType::class;
@@ -24,10 +26,17 @@ class DiscountTypeResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('start_date')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('end_date')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Select::make('type')
+                    ->options(DiscountType::class)
+
+                    ->default(DiscountType::COUPON_CODE),
+                Forms\Components\Toggle::make('never_expired')
                     ->required(),
-                Forms\Components\TextInput::make('end_date'),
-                Forms\Components\TextInput::make('type'),
-                Forms\Components\Toggle::make('never_expired'),
             ]);
     }
 
@@ -40,7 +49,12 @@ class DiscountTypeResource extends Resource
                 Tables\Columns\TextColumn::make('end_date')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('type')
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state){
+                        DiscountTypeStatus::COUPON_CODE->value => 'success',
+                        DiscountTypeStatus::PROMOTION->value => 'danger', 
+                    }),
                 Tables\Columns\IconColumn::make('never_expired')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -79,5 +93,9 @@ class DiscountTypeResource extends Resource
             'create' => Pages\CreateDiscountType::route('/create'),
             'edit' => Pages\EditDiscountType::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }
