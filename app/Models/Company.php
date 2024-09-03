@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Storage;
 
-class CompaniesTable extends Model
+class Company extends Model
 {
     use HasFactory;
     protected $fillable=[
