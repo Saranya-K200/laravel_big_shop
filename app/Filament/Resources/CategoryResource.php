@@ -13,28 +13,49 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Enums\CategoryStatus;
+
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Product Category';
+
+    protected static ?string $navigationGroup = 'Ecommerce';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('description'),
+                    ->required()
+                    ->maxlength(255),
+                Forms\Components\TextInput::make('description')
+                
+                    ->maxLength(255),
                 Forms\Components\FileUpload::make('image_path')
-                    ->image(),
-                Forms\Components\TextInput::make('buying_price'),
-                Forms\Components\TextInput::make('selling_price'),
-                Forms\Components\TextInput::make('excepted_profit'),
-                Forms\Components\TextInput::make('eraned_profit'),
+                    ->image()
+                    ->directory('category'),
+                Forms\Components\TextInput::make('buying_price')
+
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('selling_price')
+
+                     ->maxLength(255),
+                Forms\Components\TextInput::make('excepted_profit')
+
+                     ->maxLength(255),
+                Forms\Components\TextInput::make('eraned_profit')
+
+                      ->maxLength(255),
                 Forms\Components\TextInput::make('company')
-                    ->numeric(),
-                Forms\Components\TextInput::make('status'),
+
+                     ->numeric(),
+                Forms\Components\Select::make('status')
+                      ->options(CategoryStatus::class)
+                      ->default(CategoryStatus::PUBLISH),
             ]);
     }
 
@@ -44,22 +65,39 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('product_count')
+                    ->getStateUsing(fn (Category $category): string => $category->products()->count())
+                    ->searchable(),    
                 Tables\Columns\TextColumn::make('description')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image_path'),
+                Tables\Columns\ImageColumn::make('image_path')
+                    ->getStateUsing(fn (Category $record): string => $record->GetLogoImage())
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('buying_price')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('selling_price')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('excepted_profit')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('eraned_profit')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('company')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn(string $state):  string => match ($state) {
+                        CategoryStatus::PUBLISH->value => 'success',
+                        CategoryStatus::DRAFT->value => 'warning',                        
+                        CategoryStatus::PENDING->value => 'danger',
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
