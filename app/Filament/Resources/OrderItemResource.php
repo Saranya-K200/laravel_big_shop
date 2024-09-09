@@ -23,12 +23,12 @@ class OrderItemResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('order_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('product_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('order_id')
+                    ->relationship('order','id') 
+                    ->required(),
+                Forms\Components\Select::make('product_id')
+                    ->relationship('product','name')
+                    ->required(),
                 Forms\Components\TextInput::make('qty')
                     ->required()
                     ->numeric(),
@@ -39,7 +39,8 @@ class OrderItemResource extends Resource
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('discount')
-                    ->numeric(),
+                     ->required()
+                     ->numeric(),
             ]);
     }
 
@@ -101,5 +102,9 @@ class OrderItemResource extends Resource
             'create' => Pages\CreateOrderItem::route('/create'),
             'edit' => Pages\EditOrderItem::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }
