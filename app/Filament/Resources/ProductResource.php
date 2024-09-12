@@ -39,27 +39,27 @@ class ProductResource extends Resource
                         // ->preload()
                         ->relationship('category', 'name')
                         ->required(),
-                    Forms\Components\Select::make('product_companies_id')
-                        ->relationship('productCompany', 'name')
-                        ->required(),
-                    Forms\Components\Select::make('brand_id')
-                        ->relationship('brand', 'name')
-                        ->required(),
-                    Forms\Components\CheckboxList::make('product_label_id')
-                        // ->multiple()
-                        // ->preload()
-                        ->relationship('productLabel', 'name')
-                        ->required(),
-                    Forms\Components\Select::make('product_tag_id')
-                        ->multiple()
-                        ->preload()                
-                        ->relationship('productTag', 'name')
-                        ->required(),
-                    Forms\Components\CheckboxList::make('product_collection_id')
-                        // ->multiple()
-                        // ->preload()                
-                        ->relationship('productCollection', 'name')
-                        ->required(),                
+                    // Forms\Components\Select::make('product_companies_id')
+                    //     ->relationship('productCompany', 'name')
+                    //     ->required(),
+                    // Forms\Components\Select::make('brand_id')
+                    //     ->relationship('brand', 'name')
+                    //     ->required(),
+                    // Forms\Components\CheckboxList::make('product_label_id')
+                    //     // ->multiple()
+                    //     // ->preload()
+                    //     ->relationship('productLabel', 'name')
+                    //     ->required(),
+                    // Forms\Components\Select::make('product_tag_id')
+                    //     ->multiple()
+                    //     ->preload()                
+                    //     ->relationship('productTag', 'name')
+                    //     ->required(),
+                    // Forms\Components\CheckboxList::make('product_collection_id')
+                    //     // ->multiple()
+                    //     // ->preload()                
+                    //     ->relationship('productCollection', 'name')
+                    //     ->required(),                
                     Forms\Components\RichEditor::make('description')
                         ->default(null),
                     Forms\Components\TextInput::make('qty')
