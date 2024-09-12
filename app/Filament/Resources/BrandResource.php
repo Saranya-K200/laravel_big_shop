@@ -26,8 +26,7 @@ class BrandResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxlength(255),
-                Forms\Components\FileUpload::make('image_path')
-                    ->image(),
+                Forms\Components\FileUpload::make('image_path')->default('no_image_available.jpg'),
             ]);
     }
 
@@ -37,7 +36,8 @@ class BrandResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image_path'),
+                Tables\Columns\ImageColumn::make('image_path')
+                ->getStateUsing(fn (Brand $record): string=> $record->GetLogoImage()),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Storage;
 class Brand extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
         'image_path'
     ];
+
     public function product()
     {
         return $this->hasMany(Product::class);
