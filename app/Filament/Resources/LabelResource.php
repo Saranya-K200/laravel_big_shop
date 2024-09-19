@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use App\Enums\LabelStatus;
+
 class LabelResource extends Resource
 {
     protected static ?string $model = Label::class;
@@ -27,7 +29,7 @@ class LabelResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('status')
                     ->options(LabelStatus::class)
-                    ->default(Labelstatus::PUBLISH),
+                    ->default(LabelStatus::PUBLISH),
                 Forms\Components\ColorPicker::make('color'),
             ]);
     }
