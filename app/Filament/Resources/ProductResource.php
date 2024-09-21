@@ -39,9 +39,9 @@ class ProductResource extends Resource
                         // ->preload()
                         ->relationship('category', 'name')
                         ->required(),
-                    // Forms\Components\Select::make('product_companies_id')
-                    //     ->relationship('productCompany', 'name')
-                    //     ->required(),
+                    Forms\Components\Select::make('product_companies_id')
+                        ->relationship('productCompany', 'name')
+                        ->required(),
                     // Forms\Components\Select::make('brand_id')
                     //     ->relationship('brand', 'name')
                     //     ->required(),
