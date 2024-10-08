@@ -20,6 +20,9 @@
      <!-- Include the model  partial -->
     @include('frontend.model.type1')
 
+    <!-- Include the Header Partial -->
+    @include('frontend.layout.header')
+
     
     
     
