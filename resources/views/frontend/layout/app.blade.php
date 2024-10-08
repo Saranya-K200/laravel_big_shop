@@ -23,7 +23,15 @@
     <!-- Include the Header Partial -->
     @include('frontend.layout.header')
 
-    
+    @if(Request::is('/'))
+        <!-- Content for the homepage -->
+        <main class="main">
+            <!-- Include the slider partial -->
+             @include('frontend.slider.type1')
+
+        </main>
+            
+    @endif
     
     
     <!-- Include the preloader partial -->
