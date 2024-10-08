@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="frontend/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="frontend/css/main.css?v=5.3" />
 </head>
+     <!-- Include the model  partial -->
+    @include('frontend.model.type1')
+
+    
     
     
     <!-- Include the preloader partial -->
