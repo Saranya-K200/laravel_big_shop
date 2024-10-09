@@ -64,6 +64,10 @@
             <!--End 4 columns-->
 
         </main>
+
+    @else
+
+        @yield('content')
             
     @endif
 
