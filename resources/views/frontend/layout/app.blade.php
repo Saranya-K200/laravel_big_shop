@@ -66,7 +66,10 @@
         </main>
             
     @endif
+
     
+     <!-- Include the footer partial -->
+     @include('frontend.layout.footer')
     
     <!-- Include the preloader partial -->
      @include('frontend.preloader.type1')
