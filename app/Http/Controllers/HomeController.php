@@ -30,7 +30,10 @@ class HomeController extends Controller
     {
         return view ('frontend/account');
     }
-
+    public function contact(Request $request)
+    {
+        return view ('frontend/contact');
+    }
 
 
     public function page_not_found(Request $request)
