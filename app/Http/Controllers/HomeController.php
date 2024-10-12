@@ -10,4 +10,8 @@ class HomeController extends Controller
     {
         return view ('frontend/home');
     }
+    public function privacy_policy(Request $request)
+    {
+        return view ('frontend/privacy_policy');
+    }
 }
