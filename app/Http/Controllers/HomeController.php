@@ -18,4 +18,8 @@ class HomeController extends Controller
     {
         return view ('frontend/purchase_guide');
     }
+    public function page_not_found(Request $request)
+    {
+        return view ('frontend/page_not_found/type1');
+    }
 }
