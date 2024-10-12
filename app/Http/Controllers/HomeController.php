@@ -18,6 +18,13 @@ class HomeController extends Controller
     {
         return view ('frontend/purchase_guide');
     }
+    public function terms(Request $request)
+    {
+        return view ('frontend/terms');
+    }
+
+
+
     public function page_not_found(Request $request)
     {
         return view ('frontend/page_not_found/type1');

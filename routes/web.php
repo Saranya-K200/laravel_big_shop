@@ -17,7 +17,7 @@ Route::get('/reset_password',[AuthController::class, 'reset_password'])->name('h
 
 Route::get('/privacy_policy',[HomeController::class, 'privacy_policy'])->name('home.privacy_policy');
 Route::get('/purchase_guide',[HomeController::class, 'purchase_guide'])->name('home.purchase_guide');
-
+Route::get('/terms',[HomeController::class, 'terms'])->name('home.terms');
 
 
 // Fallback route for 404
