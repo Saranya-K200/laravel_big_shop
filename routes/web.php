@@ -19,6 +19,8 @@ Route::get('/privacy_policy',[HomeController::class, 'privacy_policy'])->name('h
 Route::get('/purchase_guide',[HomeController::class, 'purchase_guide'])->name('home.purchase_guide');
 Route::get('/terms',[HomeController::class, 'terms'])->name('home.terms');
 Route::get('/about',[HomeController::class, 'about'])->name('home.about');
+Route::get('/account',[HomeController::class, 'account'])->name('home.account');
+
 
 // Fallback route for 404
 Route::get('{any}', [HomeController::class, 'page_not_found'])->where('any', '.*');

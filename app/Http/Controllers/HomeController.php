@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         return view ('frontend/about');
     }
+    public function account(Request $request)
+    {
+        return view ('frontend/account');
+    }
 
 
 
