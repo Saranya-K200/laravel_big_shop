@@ -13,3 +13,5 @@ use App\Http\Controllers\AuthController;
 Route::get('/forget_password',[AuthController::class, 'forget_password'])->name('home.forget_password');
 
 Route::get('/login',[AuthController::class, 'login'])->name('home.login');
+
+Route::get('/register',[AuthController::class, 'register'])->name('home.register');

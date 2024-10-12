@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 
+    public function register(Request $request)
+    {
+        return view ('frontend/auth/register');
+    }
     public function login(Request $request)
     {
         return view('frontend/auth/login');
