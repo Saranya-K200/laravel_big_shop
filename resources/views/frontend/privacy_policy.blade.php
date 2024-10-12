@@ -118,7 +118,7 @@ privacy_policy
                                                     </li>
                                                     <li>our professional advisers (lawyers, accountants, financial advisers etc.) which are located in Australia, Ireland, Mexico, UK and USA;</li>
                                                     <li>regulators and government authorities in connection with our compliance procedures and obligations;</li>
-                                                    <li>a purchaser or prospective purchaser of all or part of our assets or our business, and their professional advisers, in connection with the purchase;</li>
+                                                    <li>a purchaser or prospective purchaser of all or part of our frontend or our business, and their professional advisers, in connection with the purchase;</li>
                                                     <li>a third party to respond to requests relating to a criminal investigation or alleged or suspected illegal activity;</li>
                                                     <li>a third party, in order to enforce or defend our rights, or to address financial or reputational risks;</li>
                                                     <li>a rights holder in relation to an allegation of intellectual property infringement or any other infringement; and</li>
@@ -220,19 +220,19 @@ privacy_policy
                                         <h5 class="section-title style-1 mb-30">Category</h5>
                                         <ul>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -241,7 +241,7 @@ privacy_policy
                                         <h5 class="section-title style-1 mb-30">Trending Now</h5>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-3.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>
@@ -253,7 +253,7 @@ privacy_policy
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-4.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-4.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>
@@ -265,7 +265,7 @@ privacy_policy
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-5.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-5.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>
@@ -277,7 +277,7 @@ privacy_policy
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-6.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-6.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Lorem, ipsum</a></h6>
@@ -289,7 +289,7 @@ privacy_policy
                                         </div>
                                     </div>
                                     <div class="banner-img wow fadeIn mb-40 animated d-lg-block d-none">
-                                        <img src="assets/imgs/banner/banner-11.png" alt="" />
+                                        <img src="frontend/imgs/banner/banner-11.png" alt="" />
                                         <div class="banner-text">
                                             <span>Oganic</span>
                                             <h4>

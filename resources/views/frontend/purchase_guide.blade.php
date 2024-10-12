@@ -34,7 +34,7 @@ purchase_guide
                                         </div>
                                     </div>
                                     <figure class="border-radius-15 mb-30">
-                                        <img class="border-radius-15" src="assets/imgs/page/guide-1.png" alt="" />
+                                        <img class="border-radius-15" src="frontend/imgs/page/guide-1.png" alt="" />
                                     </figure>
                                     <div class="single-content mb-50">
                                         <h3>1. Account Registering</h3>
@@ -88,19 +88,19 @@ purchase_guide
                                         <h5 class="section-title style-1 mb-30">Category</h5>
                                         <ul>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
                                             </li>
                                             <li>
-                                                <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
+                                                <a href="shop-grid-right.html"> <img src="frontend/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -109,7 +109,7 @@ purchase_guide
                                         <h5 class="section-title style-1 mb-30">Trending Now</h5>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-3.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>
@@ -121,7 +121,7 @@ purchase_guide
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-4.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-4.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>
@@ -133,7 +133,7 @@ purchase_guide
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-5.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-5.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>
@@ -145,7 +145,7 @@ purchase_guide
                                         </div>
                                         <div class="single-post clearfix">
                                             <div class="image">
-                                                <img src="assets/imgs/shop/thumbnail-6.jpg" alt="#" />
+                                                <img src="frontend/imgs/shop/thumbnail-6.jpg" alt="#" />
                                             </div>
                                             <div class="content pt-10">
                                                 <h6><a href="shop-product-detail.html">Lorem, ipsum</a></h6>
@@ -157,7 +157,7 @@ purchase_guide
                                         </div>
                                     </div>
                                     <div class="banner-img wow fadeIn mb-40 animated d-lg-block d-none">
-                                        <img src="assets/imgs/banner/banner-11.png" alt="" />
+                                        <img src="frontend/imgs/banner/banner-11.png" alt="" />
                                         <div class="banner-text">
                                             <span>Oganic</span>
                                             <h4>
