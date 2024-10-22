@@ -4,12 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\City;
+
 class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        return view ('frontend/home');
+        // Retrieve all cities for use in the view
+        $cities = City::all();
+        
+        // Initialize data array
+        $data = [
+            'cities' => $cities,
+        ];
+
+        return view ('frontend/home', $data);
     }
+
     public function privacy_policy(Request $request)
     {
         return view ('frontend/privacy_policy');
