@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\City;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -12,10 +13,14 @@ class HomeController extends Controller
     {
         // Retrieve all cities for use in the view
         $cities = City::all();
+
+        // Retrieve all categories for use in the view
+        $categories = Category::all();
         
         // Initialize data array
         $data = [
             'cities' => $cities,
+            'categories' => $categories,
         ];
 
         return view ('frontend/home', $data);
