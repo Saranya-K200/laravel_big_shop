@@ -31,6 +31,26 @@ class HomeController extends Controller
             'categories' => $categories,
         ];
 
+        // Apply category filter if category is present and is not 'All'
+        if ($request->has('category') && $request->category != 'All') {
+            // $query->where('category_id', $request->category);
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('categories.id', $request->category);
+            });
+            
+            // Set page title based on the selected category
+            $category = Category::find($request->category);
+            $data['page_title'] = $category ? $category->name : 'Category';
+            $data['product_count'] = $category ? $category->products()->count() : 0;
+
+            // dd($category->products()->count());
+        }
+
+        // Update products after applying filters
+        $data['product'] = $query->get();        
+
+        // dd($data['product']);
+
         // Return the appropriate view based on the category filter
         if ($request->has('category') && $request->category != 'All') {
             // dd($request->has('category'));
