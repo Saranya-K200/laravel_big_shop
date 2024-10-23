@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\City;
 use App\Models\Category;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -16,14 +17,28 @@ class HomeController extends Controller
 
         // Retrieve all categories for use in the view
         $categories = Category::all();
+
+        // Start building the query for products
+        // $query = Product::query();
+
+        // Start building the query for products
+        $query = Product::with('productLabel'); // Eager load productLabels  
         
         // Initialize data array
         $data = [
+            'product' => $query->get(),
             'cities' => $cities,
             'categories' => $categories,
         ];
 
-        return view ('frontend/home', $data);
+        // Return the appropriate view based on the category filter
+        if ($request->has('category') && $request->category != 'All') {
+            // dd($request->has('category'));
+            // dd($request->category);
+            return view('frontend/product/list/type1', $data);
+        }
+
+        return view('frontend/home', $data);
     }
 
     public function privacy_policy(Request $request)

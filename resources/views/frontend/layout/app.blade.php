@@ -27,7 +27,11 @@
     <!-- Include the Header Partial -->
     @include('frontend.layout.header')
 
-    @if(Request::is('/'))
+    @if(request()->query('category'))
+
+        @yield('content')
+
+    @elseif(Request::is('/'))
         <!-- Content for the homepage -->
         <main class="main">
             <!-- Include the slider partial -->
@@ -107,5 +111,27 @@
     <!-- Template  JS -->
     <script src="frontend/js/main.js?v=5.3"></script>
     <script src="frontend/js/shop.js?v=5.3"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // console.log("document loaded");
+
+            // Category Search Event
+            // Set the selected option value (example: setting it to '2')
+            // $('#category').val('2'); // This sets the dropdown to 'Category 2'
+
+            $('#category').change(function() {
+                var selectedValue = $(this).val();
+                console.log("Selected Category ID: " + selectedValue);
+
+                // Optionally submit the form if needed
+                // Submit the form when the dropdown value changes
+                $(this).closest('form').submit();
+                
+            });
+            
+        });
+    </script>
 </body>
 </html>
