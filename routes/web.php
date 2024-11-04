@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 
+
+// Product detail page
+Route::get('/products/{id}', [HomeController::class, 'show'])->name('product.show');
+
+
 use App\Http\Controllers\AuthController;
 
 Route::get('/forget_password',[AuthController::class, 'forget_password'])->name('home.forget_password');

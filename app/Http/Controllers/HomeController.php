@@ -61,6 +61,16 @@ class HomeController extends Controller
         return view('frontend/home', $data);
     }
 
+    public function show($id){
+        //dd($id);
+
+        $data = [
+            'id' => $id
+        ];
+
+        return view('frontend/product/detail/type1', $data);
+    }
+
     public function privacy_policy(Request $request)
     {
         return view ('frontend/privacy_policy');

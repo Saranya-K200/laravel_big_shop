@@ -97,7 +97,7 @@
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="shop-product-right.html">
+                                    <a href="{{ route('product.show', $row->id) }}">
                                         <img class="default-img" src="frontend/imgs/shop/product-1-1.jpg" alt="" />
                                         <img class="hover-img" src="frontend/imgs/shop/product-1-2.jpg" alt="" />
                                     </a>
