@@ -63,7 +63,6 @@ class HomeController extends Controller
 
     public function show($id){
         //dd($id);
-
         $data = [
             'id' => $id
         ];
