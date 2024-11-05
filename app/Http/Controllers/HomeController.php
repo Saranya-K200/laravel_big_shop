@@ -63,8 +63,12 @@ class HomeController extends Controller
 
     public function show($id){
         //dd($id);
+
+        $product = Product::find($id);
+
         $data = [
-            'id' => $id
+            'id' => $id,
+            'product' => $product
         ];
 
         return view('frontend/product/detail/type1', $data);
