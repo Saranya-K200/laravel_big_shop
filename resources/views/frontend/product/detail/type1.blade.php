@@ -112,7 +112,14 @@
                                             </div>
                                             <div class="font-xs">
                                                 <ul class="float-start">
-                                                    <li class="mb-5">Tags: <a href="{{ asset('#') }}" rel="tag">Snack</a>, <a href="{{ asset('#') }}" rel="tag">Organic</a>, <a href="{{ asset('#') }}" rel="tag">Brown</a></li>
+
+                                                    <li class="mb-5">Tags: 
+
+                                                        @foreach($product->productTag()->pluck('name') as $tag)
+                                                        <a href="{{ asset('#') }}" rel="tag"> {{ $tag }}</a>, 
+                                                        @endforeach
+
+                                                    </li>
                                                     <li>Stock:<span class="in-stock text-brand ml-5">{{ $product->qty }} Items In Stock</span></li>
                                                 </ul>
                                             </div>
