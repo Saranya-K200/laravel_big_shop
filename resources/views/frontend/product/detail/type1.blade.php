@@ -272,7 +272,7 @@
                                                     <img src="{{ asset('frontend/imgs/vendor/vendor-18.svg') }}" alt="" />
                                                     <div class="vendor-name ml-15">
                                                         <h6>
-                                                            <a href="{{ asset('vendor-details-2.html') }}">Noodles Co.</a>
+                                                            <a href="{{ asset('vendor-details-2.html') }}">{{ $product->productCompany()->pluck('name')->implode(',') }}.</a>
                                                         </h6>
                                                         <div class="product-rate-cover text-end">
                                                             <div class="product-rate d-inline-block">
