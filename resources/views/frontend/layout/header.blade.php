@@ -220,6 +220,8 @@
                                                 <div class="shopping-cart-title">
                                                     <h4><a href="{{ asset('shop-product-right.html') }}">{{$row->product->name}}</a></h4>
                                                     <h4><span> {{ $row->qty }} × </span>{{ $row->product->price }}</h4>
+                                                    <!-- OR -->
+                                                    <h4><span> {{ $row->qty }} × </span>{{ $cart_sub_total }}</h4>
                                                 </div>
                                                 <div class="shopping-cart-delete">
                                                     <a href="{{ asset('#') }}"><i class="fi-rs-cross-small"></i></a>
@@ -229,7 +231,7 @@
                                         </ul>
                                         <div class="shopping-cart-footer">
                                             <div class="shopping-cart-total">
-                                                <h4>Total <span>$4000.00</span></h4>
+                                                <h4>Total <span>₹ {{ $cart_grand_total }}</span></h4>
                                             </div>
                                             <div class="shopping-cart-button">
                                                 <a href="{{ asset('shop-cart.html') }}" class="outline">View cart</a>
