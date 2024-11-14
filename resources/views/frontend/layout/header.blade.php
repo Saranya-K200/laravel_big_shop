@@ -221,7 +221,7 @@
                                                     <h4><a href="{{ asset('shop-product-right.html') }}">{{$row->product->name}}</a></h4>
                                                     <h4><span> {{ $row->qty }} × </span>{{ $row->product->price }}</h4>
                                                     <!-- OR -->
-                                                    <h4><span> {{ $row->qty }} × </span>{{ $cart_sub_total }}</h4>
+                                                    <!-- <h4><span> {{ $row->qty }} × </span>{{ $cart_sub_total }}</h4> -->
                                                 </div>
                                                 <div class="shopping-cart-delete">
                                                     <a href="{{ asset('#') }}"><i class="fi-rs-cross-small"></i></a>
