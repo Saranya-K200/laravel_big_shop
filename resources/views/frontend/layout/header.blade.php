@@ -209,7 +209,7 @@
                                         <img alt="Nest" src="{{ asset('frontend/imgs/theme/icons/icon-cart.svg') }}" />
                                         <span class="pro-count blue">{{ $cart_count }}</span>
                                     </a>
-                                    <a href="{{ asset('shop-cart.html') }}"><span class="lable">Cart</span></a>
+                                    <a href="{{ route('cart.index') }}"><span class="lable">Cart</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         <ul>
                                             @foreach($carts as $row)
@@ -234,7 +234,7 @@
                                                 <h4>Total <span>₹ {{ $cart_grand_total }}</span></h4>
                                             </div>
                                             <div class="shopping-cart-button">
-                                                <a href="{{ asset('shop-cart.html') }}" class="outline">View cart</a>
+                                                <a href="{{ route('cart.index') }}" class="outline">View cart</a>
                                                 <a href="{{ asset('shop-checkout.html') }}">Checkout</a>
                                             </div>
                                         </div>
