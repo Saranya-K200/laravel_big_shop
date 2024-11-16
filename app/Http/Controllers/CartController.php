@@ -95,7 +95,7 @@ class CartController extends Controller
     }
 
     public function decreaseQuantity(Request $request, $id)
-    {
+    {        
         $user = Auth::user();
         $customer_id = $user->id;
 

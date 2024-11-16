@@ -68,15 +68,29 @@ account
                                     </td>
                                     <td class="text-center detail-info" data-title="Stock">
                                         <div class="detail-extralink mr-15">
+                                            
+                                            <!-- Decrease Quantity -->
+                                            <form action="{{ route('cart.decrease', $row->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-danger" @if($row->qty == 1) disabled @endif>-</button>
+                                            </form>
+
                                             <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <!-- <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a> -->
                                                 <input type="text" name="quantity" class="qty-val" value="{{ $row->qty }}" min="1">
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <!-- <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a> -->
                                             </div>
+
+                                            <!-- Increase Quantity -->
+                                            <form action="{{ route('cart.increase', $row->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-success">+</button>
+                                            </form>
+                                            
                                         </div>
                                     </td>
                                     <td class="price" data-title="Price">
-                                        <h4 class="text-brand">{{ $cart_sub_total }} </h4>
+                                        <h4 class="text-brand">₹{{ $cart_sub_total }} </h4>
                                     </td>
                                     <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
                                 </tr>
@@ -87,7 +101,7 @@ account
                     <div class="divider-2 mb-30"></div>
                     <div class="cart-action d-flex justify-content-between">
                         <a class="btn "><i class="fi-rs-arrow-left mr-10"></i>Continue Shopping</a>
-                        <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-refresh mr-10"></i>Update Cart</a>
+                        <!-- <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-refresh mr-10"></i>Update Cart</a> -->
                     </div>
                     <div class="row mt-50">
                         <div class="col-lg-7">
