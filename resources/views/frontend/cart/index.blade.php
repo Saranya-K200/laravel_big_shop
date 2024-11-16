@@ -92,7 +92,7 @@ account
                                     <td class="price" data-title="Price">
                                         <h4 class="text-brand">₹{{ $cart_sub_total }} </h4>
                                     </td>
-                                    <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
+                                    <td class="action text-center" data-title="Remove"><a href="{{ route('cart.remove', $row->id) }}" class="text-body"><i class="fi-rs-trash"></i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
