@@ -42,7 +42,7 @@ Route::post('/cart/increase/{id}', [CartController::class, 'increaseQuantity'])-
 Route::post('/cart/decrease/{id}', [CartController::class, 'decreaseQuantity'])->name('cart.decrease');
 
 // Remove item from cart
-Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 // Checkout route (if you have a checkout process)
 // Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

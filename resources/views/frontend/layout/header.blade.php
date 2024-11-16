@@ -224,7 +224,7 @@
                                                     <!-- <h4><span> {{ $row->qty }} × </span>{{ $cart_sub_total }}</h4> -->
                                                 </div>
                                                 <div class="shopping-cart-delete">
-                                                    <a href="{{ asset('#') }}"><i class="fi-rs-cross-small"></i></a>
+                                                    <a href="{{ route('cart.remove', $row->id) }}"><i class="fi-rs-cross-small"></i></a>
                                                 </div>
                                             </li>
                                             @endforeach

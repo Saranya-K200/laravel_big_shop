@@ -115,7 +115,7 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', $cartItem->product->name . ' quantity decreased.');
     }
 
-    public function removeFromCart(Request $request, $id)
+    public function removeFromCart($id)
     {
         $user = Auth::user();
         $customer_id = $user->id;
