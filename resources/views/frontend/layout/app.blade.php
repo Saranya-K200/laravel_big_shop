@@ -150,3 +150,10 @@
     
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        console.log("document ready");
+        
+    });
+</script>
