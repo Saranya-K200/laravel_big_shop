@@ -28,6 +28,10 @@ Route::get('/account',[HomeController::class, 'account'])->name('home.account');
 Route::get('/contact',[HomeController::class, 'contact'])->name('home.contact');
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+
+//checkout route
+Route::get('checkout',[OrderController::class, 'checkout'])->name('checkout');
 
 // Cart listing page
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
