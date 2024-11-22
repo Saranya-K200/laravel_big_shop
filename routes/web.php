@@ -33,6 +33,14 @@ use App\Http\Controllers\OrderController;
 //checkout route
 Route::get('checkout',[OrderController::class, 'checkout'])->name('checkout');
 
+//Order Confirmation route
+Route::get('order/confirmation/{order}',[OrderController::class, 'confirmation'])->name('order.confirmation');
+
+//Order history route
+Route::get('order/history/{id}',[OrderController::class,'order_history'])->name('order.history');
+//Order show route
+Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
+
 // Cart listing page
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
