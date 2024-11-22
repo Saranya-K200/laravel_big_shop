@@ -17,6 +17,9 @@ use App\Enums\StockStatus;
 use App\Enums\Status;
 use App\Enums\TaxeStatus;
 
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
+
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
@@ -29,7 +32,11 @@ class ProductResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (Set $set, ?string $state)=>$set('slug', Str::slug($state))),
+                Forms\Components\TextInput::make('slug')
+                    ->maxlength(255),
                     Forms\Components\TextInput::make('price')
                         ->numeric()
                         ->default(null)

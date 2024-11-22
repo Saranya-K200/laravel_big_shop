@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('is_featured')->nullable()->default(false);
             $table->string('min_order_qty')->nullable()->default(0);
             $table->string('max_order_qty')->nullable()->default(0);
+            $table->string('slug')->nullable();
 
             $table->timestamps();
         });

@@ -24,7 +24,8 @@ class Product extends Model
         'stock_status',
         'is_featured',
         'min_order_qty',
-        'max_order_qty'
+        'max_order_qty',
+        'slug'
     ];
 
     protected $casts = [
