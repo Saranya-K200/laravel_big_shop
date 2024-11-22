@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Order;
+use App\Models\Cart;
+use App\Enums\OrderStatus;
+
 class OrderController extends Controller
 {
     public function checkout(Request $request)
@@ -74,16 +81,16 @@ class OrderController extends Controller
                 ->first();
         //dd($order);
 
-        //Retrieve all cities for use in the view
-        $cities = City::all();
+        // //Retrieve all cities for use in the view
+        // $cities = City::all();
 
-        //Retrieve all category for use in the view
-        $category = Category::all();
+        // //Retrieve all category for use in the view
+        // $category = Category::all();
 
         $data =[
             'order' => $order,
-            'category' => $category,
-            'cities' => $cities,
+            // 'category' => $category,
+            // 'cities' => $cities,
         ];
         return view('frontend/order/confirmation', $data);
 

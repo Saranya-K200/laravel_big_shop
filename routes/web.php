@@ -36,6 +36,9 @@ Route::get('checkout',[OrderController::class, 'checkout'])->name('checkout');
 //Order Confirmation route
 Route::get('order/confirmation/{order}',[OrderController::class, 'confirmation'])->name('order.confirmation');
 
+//place an order
+Route::post('place_an_order', [OrderController::class, 'place_an_order'])->name('place_an_order');
+
 //Order history route
 Route::get('order/history/{id}',[OrderController::class,'order_history'])->name('order.history');
 //Order show route

@@ -736,7 +736,7 @@ order check out page
                         <img src="frontend/imgs/theme/icons/payment-zapper.svg" alt="">
                     </div>
                     <!-- <a href="#" class="btn btn-fill-out btn-block mt-30">Place an Order<i class="fi-rs-sign-out ml-15"></i></a> -->
-                    <form action="#" method="POST" class="mt-4">
+                    <form action="{{ route('place_an_order') }}" method="POST" class="mt-4">
                         @csrf
                         <button type="submit" class="btn btn-fill-out btn-block mt-30">Place an Order<i class="fi-rs-sign-out ml-15"></i></button>
                     </form>
