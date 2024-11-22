@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('eraned_profit')->nullable();
             $table->unsignedBigInteger('company')->nullable();
             $table->string('status')->default(CategoryStatus::PUBLISH)->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use App\Enums\CategoryStatus;
 
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
+
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
@@ -31,6 +34,10 @@ class CategoryResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
+                    ->maxlength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (Set $set, ?string $state)=> $set('slug', Str::slug($state))),
+                Forms\Components\TextInput::make('slug')
                     ->maxlength(255),
                 Forms\Components\TextInput::make('description')
                 

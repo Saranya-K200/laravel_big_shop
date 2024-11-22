@@ -17,7 +17,8 @@ class Category extends Model
         'excepted_profit',
         'eraned_profit',
         'company',
-        'status'
+        'status',
+        'slug'
     ];
     public function GetLogoImage()
     {
