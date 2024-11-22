@@ -43,7 +43,8 @@ class AppServiceProvider extends ServiceProvider
                 return $item->totalPrice();
             });
 
-            $cart_grand_total = Cart::grandTotal($user->id);
+            // Calculate grand total if user exists
+            $cart_grand_total = $user ? Cart::grandTotal($user->id) : 0;
 
             $view->with('carts' , $carts);
             $view->with('cart_count' ,$cart_count);
@@ -68,7 +69,8 @@ class AppServiceProvider extends ServiceProvider
                 return $item->totalPrice();
             });
 
-            $cart_grand_total = Cart::grandTotal($user->id);
+            // Calculate grand total if user exists
+            $cart_grand_total = $user ? Cart::grandTotal($user->id) : 0;
 
             $view->with('carts' , $carts);
             $view->with('cart_count' ,$cart_count);
@@ -94,7 +96,8 @@ class AppServiceProvider extends ServiceProvider
                 return $item->totalPrice();
             });
 
-            $cart_grand_total = Cart::grandTotal($user->id);
+            // Calculate grand total if user exists
+            $cart_grand_total = $user ? Cart::grandTotal($user->id) : 0;
 
             $view->with('carts' , $carts);
             $view->with('cart_count' ,$cart_count);
