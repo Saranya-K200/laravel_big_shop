@@ -127,7 +127,7 @@
                                 <div class="product-category">
                                     <a href="shop-grid-right.html">{{ $row->category()->pluck('name')->implode(', ') }}</a>
                                 </div>
-                                <h2><a href="shop-product-right.html">{{ $row->name }}</a></h2>
+                                <h2><a href="{{ route('product.show', $row->id) }}">{{ $row->name }}</a></h2>
                                 <div class="product-rate-cover">
                                     <div class="product-rate d-inline-block">
                                         <div class="product-rating" style="width: 90%"></div>
