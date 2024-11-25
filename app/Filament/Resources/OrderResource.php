@@ -141,7 +141,7 @@ class OrderResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\Action::make('View invoice')
-                    ->url(fn (Order $record): string => route('invoice.stream-pdf', $record->id))
+                    ->url(fn (Order $record): string => route('invoice.view-pdf', $record->id))
                     ->openUrlInNewTab(),
                 Tables\Actions\Action::make('Download invoice')
                     ->url(fn (Order $record): string => route('invoice.download-pdf', $record->id))
