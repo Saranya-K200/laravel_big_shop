@@ -143,7 +143,12 @@
                                         <span class="old-price">₹{{ $row->price }}</span>
                                     </div>
                                     <div class="add-cart">
-                                        <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                        <!-- Add to Cart Form -->
+                                        <form action="{{ route('cart.add_to_cart') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $row->id }}">
+                                            <button type="submit" class="btn-sm button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
