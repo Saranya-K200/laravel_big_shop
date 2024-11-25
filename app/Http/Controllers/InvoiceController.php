@@ -14,7 +14,8 @@ use App\Models\Category;
 
 use App\Models\City;
 
-class InvoiceController extends Controllers
+
+class InvoiceController extends Controller
 {
     public function viewInvoice($id)
     {
@@ -25,7 +26,7 @@ class InvoiceController extends Controllers
         $order_items = OrderItem::where('order_id', $order->id)->get();
 
         //generate UPI QR code
-        $upi_qr = BarcodeGenerate::generateQRcode('9944177142@icici');
+        // $upi_qr = BarcodeGenerate::generateQRcode('9944177142@icici');
 
         //retrieve all cities for use in the view
         $cities = City::all();
@@ -40,10 +41,10 @@ class InvoiceController extends Controllers
 
             'order' => $order,
             'order_items' => $order_items,
-            'upi_qr' => $upi_qr
+            // 'upi_qr' => $upi_qr
         ];
 
-        return view('frontend/invoice/show' , $data);
+        return view('frontend/pdf/invoice' , $data);
 
     }
     public function generateInvoicePdf($id)
@@ -52,16 +53,16 @@ class InvoiceController extends Controllers
         $order = Order::findOrFail($id);
 
         //Get order items
-        $order_items = OrderItems::where('order_id', $order->id)->get();
+        $order_items = OrderItem::where('order_id', $order->id)->get();
 
          // Generate UPI QR code
-         $upi_qr = BarcodeGenerator::generateQRcode('9944177142@icici');
+        //  $upi_qr = BarcodeGenerator::generateQRcode('9944177142@icici');
         
          // Prepare data for the PDF
          $data = [
              'order' => $order,
              'order_items' => $order_items,
-             'upi_qr' => $upi_qr
+            //  'upi_qr' => $upi_qr
          ];
 
          //Load the view and pass the data
@@ -87,7 +88,7 @@ class InvoiceController extends Controllers
         $data = [
             'order' => $order,
             'order_items' => OrderItems::where('order_id', $order->id)->get(),
-            'upi_qr' => BarcodeGenerate::generateQRcode('9944177142@icici')
+            // 'upi_qr' => BarcodeGenerate::generateQRcode('9944177142@icici')
         ];
 
         //send email with the invoice attached
@@ -109,7 +110,7 @@ class InvoiceController extends Controllers
         //download the PDF
         return $pdf->download('invoice.pdf');
     }
-    
+
     public function streamInvoicePdf($id)
     {
         // Generate the PDF
