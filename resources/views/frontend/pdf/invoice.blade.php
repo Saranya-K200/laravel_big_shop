@@ -39,7 +39,8 @@
                                     </div>
                                     <div class="col-md-6 text-end">
                                         <h2>INVOICE</h2>
-                                        <h6>ID Number: <span class="text-brand">98657</span></h6>
+                                        <h6>Order Number: <span class="text-brand">{{ $order->order_number }}</span></h6>
+                                        <h6>Payment method: <span class="text-brand">{{ $order->payment_method }}</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -51,68 +52,45 @@
                                     <table class="table table-striped invoice-table">
                                         <thead class="bg-active">
                                             <tr>
-                                                <th>Item Item</th>
+                                                <th>Item Name</th>
                                                 <th class="text-center">Unit Price</th>
                                                 <th class="text-center">Quantity</th>
                                                 <th class="text-right">Amount</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($order_items as $row)
                                             <tr>
                                                 <td>
                                                     <div class="item-desc-1">
-                                                        <span>Field Roast Chao Cheese Creamy Original</span>
-                                                        <small>SKU: FWM15VKT</small>
+                                                        <span>{{ $row->product->name }}</span>
+                                                        <!-- <small>SKU: FWM15VKT</small> -->
                                                     </div>
                                                 </td>
-                                                <td class="text-center">$10.99</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-right">$10.99</td>
+                                                <td class="text-center">₹{{ $row->unit_price }}</td>
+                                                <td class="text-center">{{ $row->qty }}</td>
+                                                <td class="text-right">₹{{ $row->amount }}</td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="item-desc-1">
-                                                        <span>Blue Diamond Almonds Lightly Salted</span>
-                                                        <small>SKU: FWM15VKT</small>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">$20.00</td>
-                                                <td class="text-center">3</td>
-                                                <td class="text-right">$60.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="item-desc-1">
-                                                        <span>Fresh Organic Mustard Leaves Bell Pepper</span>
-                                                        <small>SKU: KVM15VK</small>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">$640.00</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-right">$640.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="item-desc-1">
-                                                        <span>All Natural Italian-Style Chicken Meatballs</span>
-                                                        <small>SKU: 98HFG</small>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">$240.00</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-right">$240.00</td>
-                                            </tr>
+                                            @endforeach
                                             <tr>
                                                 <td colspan="3" class="text-end f-w-600">SubTotal</td>
-                                                <td class="text-right">$1710.99</td>
+                                                <td class="text-right">₹{{ $order->total_amount_without_SGST_CGST() }} <br>{{ $order->getTotalAmountInWords()}}</td>                                                
                                             </tr>
                                             <tr>
-                                                <td colspan="3" class="text-end f-w-600">Tax</td>
-                                                <td class="text-right">$85.99</td>
+                                                <td colspan="3" class="text-end f-w-600">CGST</td>
+                                                <td class="text-right">₹{{ $order->calculaterCGST()}} <br>{{ $order->calculaterCGSTInWords() }} </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="text-end f-w-600">SGST</td>
+                                                <td class="text-right">₹{{ $order->calculaterSGST()}} <br> {{ $order->calculaterSGSTInWords() }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="text-end f-w-600">TAX</td>
+                                                <td class="text-right">{{ $order->calculate_SGST_CGST() }} <br>{{ $order->convertTaxAmountInWords()}}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3" class="text-end f-w-600">Grand Total</td>
-                                                <td class="text-right f-w-600">$1795.99</td>
+                                                <td class="text-right f-w-600">{{ $order->total_amount_with_SGST_CGST()}} <br>{{ $order->total_amount_with_SGST_CGSTInWords() }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -130,7 +108,7 @@
                                     </div>
                                     <div class="col-md-6 text-end">
                                         <h6 class="mb-15">Total Amount</h6>
-                                        <h3 class="mt-0 mb-0 text-brand">$1795.99</h3>
+                                        <h3 class="mt-0 mb-0 text-brand">₹{{ $order->total_amount_with_SGST_CGST()}} <br>{{ $order->total_amount_with_SGST_CGSTInWords() }}</h3>
                                         <p class="mb-0 text-muted">Taxes Included</p>
                                     </div>
                                 </div>

@@ -63,9 +63,34 @@ class Order extends Model
         return $this->total_amount * 0.06; // Corrected the calculation
     }
 
+    public function calculaterSGSTInWords(): string
+    {
+        $numberToWords = new NumberToWords();
+        $transformer = $numberToWords->getNumberTransformer('en');
+
+        $taxAmount = $this->total_amount * 0.06; // Corrected the calculation
+
+        return $transformer->toWords($taxAmount);
+    }
+
+    public function calculaterCGSTInWords(): string
+    {
+        $numberToWords = new NumberToWords();
+        $transformer = $numberToWords->getNumberTransformer('en');
+
+        $taxAmount = $this->total_amount * 0.06; // Corrected the calculation
+
+        return $transformer->toWords($taxAmount);
+    }
+
     public function calculate_SGST_CGST(): float 
     {
         return $this->calculaterSGST() + $this->calculaterCGST();
+    }
+
+    public function total_amount_without_SGST_CGST(): float
+    {    
+        return $this->total_amount;
     }
 
     public function total_amount_with_SGST_CGST(): float
@@ -79,6 +104,15 @@ class Order extends Model
         // return $total_amount;
 
         return $this->total_amount + $this->calculaterSGST() + $this->calculaterCGST();
+    }
+
+    public function total_amount_with_SGST_CGSTInWords(): string
+    {
+        $numberToWords = new NumberToWords();
+        $transformer = $numberToWords->getNumberTransformer('en');
+        $totalWithTaxAmount = $this->total_amount + $this->calculaterSGST() + $this->calculaterCGST(); // Calculated tax amount
+
+        return $transformer->toWords($totalWithTaxAmount);
     }
 
     public function getTotalAmountInWords(): string
