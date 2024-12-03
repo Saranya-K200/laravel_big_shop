@@ -18,6 +18,12 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('customer_care_no')->nullable();
             $table->string('address')->nullable();
+            $table->string('google_play_link')->nullable();
+            $table->string('apple_app_store_link')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('instragram_link')->nullable();
+            $table->string('youtube_link')->nullable();
             $table->timestamps();
         });
     }

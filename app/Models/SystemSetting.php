@@ -13,6 +13,12 @@ class SystemSetting extends Model
         'email',
         'website',
         'customer_care_no',
-        'address'
+        'address',
+        'google_play_link',
+        'apple_app_store_link',
+        'facebook_link',
+        'twitter_link',
+        'instragram_link',
+        'youtube_link'
     ];
 }
