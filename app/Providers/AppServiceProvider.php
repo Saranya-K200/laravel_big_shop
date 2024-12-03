@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Cart;
 
+use App\Models\SystemSetting;
+
 use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
@@ -104,6 +106,15 @@ class AppServiceProvider extends ServiceProvider
             $view->with('cart_sub_total' , $cart_sub_total);
             $view->with('cart_grand_total' ,$cart_grand_total);
 
+        });
+
+        // Bind categories to the header view only
+        view()->composer('frontend.layout.footer', function ($view) {
+
+
+            $system_settings = SystemSetting::first();
+
+            $view->with('system_settings' , $system_settings);
         });
     }
 }
